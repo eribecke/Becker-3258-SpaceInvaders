@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089107583835483826, guid: c23e11c855e26a6439a68d4c0f22cb23, type: 3}
       propertyPath: laserSpeed
-      value: -15
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 8371193782512624063, guid: c23e11c855e26a6439a68d4c0f22cb23, type: 3}
       propertyPath: m_Name
