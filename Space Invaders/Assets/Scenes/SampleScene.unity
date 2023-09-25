@@ -187,7 +187,7 @@ MonoBehaviour:
   enemyLaser: {fileID: 7454688973902632478, guid: 9659c4e190d78ab45b700a169a646bda, type: 3}
   killed: 0
   alive: 0
-  shotRate: 0.2
+  shotRate: 2
 --- !u!4 &4171078
 Transform:
   m_ObjectHideFlags: 0
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 1169717794}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,8 +460,8 @@ Transform:
   m_GameObject: {fileID: 1169717789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0856, y: -4.1456, z: 0}
-  m_LocalScale: {x: 0.8288, y: 0.8288, z: 0.8288}
+  m_LocalPosition: {x: 0.0967, y: -3.9633, z: 0}
+  m_LocalScale: {x: 1.193472, y: 1.193472, z: 1.193472}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
