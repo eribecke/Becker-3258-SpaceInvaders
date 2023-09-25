@@ -8,6 +8,7 @@ public class Enemies : MonoBehaviour
     [SerializeField] int rows;
     [SerializeField] int columns;
     [SerializeField] float speed;
+    private int score = 0;
     private Vector3 direction = Vector2.right;
    
     void Awake()
@@ -21,6 +22,7 @@ public class Enemies : MonoBehaviour
             for(int col = 0; col < columns; col++)
             {
                 Enemy enemy = Instantiate(this.enemies[row], this.transform);
+                enemy.death += onDeath;
                 Vector3 position = rowPosition;
                 position.x += col * 0.8f;
                 enemy.transform.localPosition = position;
@@ -59,6 +61,12 @@ public class Enemies : MonoBehaviour
         position.y -= 1.0f;
         this.transform.position = position;
 
+    }
+
+    private void onDeath()
+    {
+        score += 10;
+        Debug.Log("Score: " + score);
     }
 
 

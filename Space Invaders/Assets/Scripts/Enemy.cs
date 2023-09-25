@@ -6,6 +6,7 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed;
+    public System.Action death;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,8 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            this.death.Invoke();
+
         }
 
 
