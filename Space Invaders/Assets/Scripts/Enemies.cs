@@ -7,9 +7,13 @@ public class Enemies : MonoBehaviour
     [SerializeField] Enemy[] enemies;
     [SerializeField] int rows;
     [SerializeField] int columns;
-    [SerializeField] float speed;
+    [SerializeField] AnimationCurve speed;
     private int score = 0;
+    public int killed = 0;
+    public int enemyTotal => this.rows * this.columns;
+    public float killRate => (float) this.killed / (float) this.enemyTotal;
     private Vector3 direction = Vector2.right;
+    
    
     void Awake()
     {
@@ -32,7 +36,7 @@ public class Enemies : MonoBehaviour
 
     private void Update()
     {
-        this.transform.position += direction * this.speed * Time.deltaTime;
+        this.transform.position += direction * this.speed.Evaluate(this.killRate) * Time.deltaTime;
 
         Vector3 left = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 right = Camera.main.ViewportToWorldPoint(Vector3.right);
@@ -67,6 +71,7 @@ public class Enemies : MonoBehaviour
     {
         score += 10;
         Debug.Log("Score: " + score);
+        this.killed++;
     }
 
 
