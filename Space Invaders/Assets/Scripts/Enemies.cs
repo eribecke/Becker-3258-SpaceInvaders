@@ -10,6 +10,8 @@ public class Enemies : MonoBehaviour
     [SerializeField] AnimationCurve speed;
     private int score = 0;
     public int killed = 0;
+    public int alive = 0;
+    public float shotRate = 1.0f;
     public int enemyTotal => this.rows * this.columns;
     public float killRate => (float) this.killed / (float) this.enemyTotal;
     private Vector3 direction = Vector2.right;
@@ -34,6 +36,10 @@ public class Enemies : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        InvokeRepeating(nameof(shoot), this.shotRate, this.shotRate);
+    }
     private void Update()
     {
         this.transform.position += direction * this.speed.Evaluate(this.killRate) * Time.deltaTime;
@@ -72,6 +78,17 @@ public class Enemies : MonoBehaviour
         score += 10;
         Debug.Log("Score: " + score);
         this.killed++;
+    }
+
+    private void shoot()
+    {
+        foreach (Transform enemy in this.transform)
+        {
+            if (!enemy.gameObject.activeInHierarchy)
+            {
+                continue;
+            }
+        }
     }
 
 
