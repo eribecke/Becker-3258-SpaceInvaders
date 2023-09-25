@@ -8,6 +8,7 @@ public class Enemies : MonoBehaviour
     [SerializeField] int rows;
     [SerializeField] int columns;
     [SerializeField] AnimationCurve speed;
+    [SerializeField] Laser enemyLaser;
     private int score = 0;
     public int killed = 0;
     public int alive = 0;
@@ -87,6 +88,11 @@ public class Enemies : MonoBehaviour
             if (!enemy.gameObject.activeInHierarchy)
             {
                 continue;
+            }
+            if(Random.value < (1.0f / (float)this.alive))
+            {
+                Instantiate(this.enemyLaser, enemy.position, Quaternion.identity);
+                break;
             }
         }
     }

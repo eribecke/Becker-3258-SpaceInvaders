@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
         }
       
-        else
+        if(collision.gameObject.CompareTag("Laser"))
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
